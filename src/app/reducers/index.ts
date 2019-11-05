@@ -17,6 +17,7 @@ export const reducers = {
 // 2. create a selector for each branch of the state
 const selectCounterBranch = (state: ApplicationState) => state.counter;
 
+
 // 3. create "helpers" (optional)
 // 4. create selectors that is needed for components
 // todo: need a function that returns the current value of the counter
@@ -28,3 +29,14 @@ export const selectDecrementDisabled = createSelector(
   selectCountingBy,
   (current, by) => current - by < 0
 );
+
+export const selectFizz = createSelector(
+  selectCurrentCount,
+  (current) => current % 3 === 0
+);
+
+export const selectBuzz = createSelector(
+  selectCurrentCount,
+  (current) => current % 5 === 0
+);
+

@@ -32,3 +32,11 @@
           [disabled]="(countingBy$ | async) === 5"
           class="btn btn-secondary">5</button>
 </div>
+
+<div class="fizzbuzz">
+  <!--ng if to see if it would show -->
+  <span class="fizz"
+        *ngIf="( fizz$ | async )">Fizz</span>
+  <span class="buzz"
+        *ngIf="( buzz$ | async )">Buzz</span>
+</div>

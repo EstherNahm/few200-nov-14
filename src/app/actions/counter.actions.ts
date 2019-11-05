@@ -16,3 +16,12 @@ export const countBySet = createAction(
   '[app counter] count by set',
   props<{ by: number }>()
 );
+
+export const fizz = createAction(
+  '[fizz]'
+);
+
+export const buzz = createAction(
+  '[buzz]'
+);
+
