@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationState, selectCurrentCount } from 'src/app/reducers';
+import { ApplicationState, selectCurrentCount, selectDecrementDisabled, selectCountingBy } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as actions from '../../actions/counter.actions';
@@ -11,11 +11,15 @@ import * as actions from '../../actions/counter.actions';
 })
 export class CounterComponent implements OnInit {
 
+  countingBy$: Observable<number>;
   count$: Observable<number>;
+  decrementDisabled$: Observable<boolean>;
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
     this.count$ = this.store.select(selectCurrentCount);
+    this.decrementDisabled$ = this.store.select(selectDecrementDisabled);
+    this.countingBy$ = this.store.select(selectCountingBy);
   }
 
   increment() {
@@ -27,7 +31,8 @@ export class CounterComponent implements OnInit {
   reset() {
     this.store.dispatch(actions.reset());
   }
+  setCountBy(by: number) {
+    this.store.dispatch(actions.countBySet({ by }));
+  }
 }
-function getCurrent(state: ApplicationState) {
-  return state.counter.current;
-}
+

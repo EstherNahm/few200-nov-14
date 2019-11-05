@@ -19,6 +19,12 @@ const selectCounterBranch = (state: ApplicationState) => state.counter;
 
 // 3. create "helpers" (optional)
 // 4. create selectors that is needed for components
-export const selectCurrentCount = createSelector(selectCounterBranch, b => b.current);
 // todo: need a function that returns the current value of the counter
 
+export const selectCurrentCount = createSelector(selectCounterBranch, b => b.current);
+export const selectCountingBy = createSelector(selectCounterBranch, b => b.by);
+export const selectDecrementDisabled = createSelector(
+  selectCurrentCount,
+  selectCountingBy,
+  (current, by) => current - by < 0
+);

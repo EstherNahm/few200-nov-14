@@ -5,10 +5,12 @@ import * as actions from '../actions/counter.actions';
 
 export interface CounterState {
   current: number;
+  by: number;
 }
 
 const initialState: CounterState = {
-  current: 0
+  current: 0,
+  by: 1
 };
 
 // job is to return a new state
@@ -19,6 +21,7 @@ export function reducer(state: CounterState, action: Action): CounterState {
 const myReducer = createReducer(
   initialState,
   on(actions.reset, () => initialState),
-  on(actions.increment, (state) => ({ current: state.current + 1 })),
-  on(actions.decrement, (state) => ({ current: state.current - 1 }))
+  on(actions.increment, (state) => ({ ...state, current: state.current + state.by })),
+  on(actions.decrement, (state) => ({ ...state, current: state.current - state.by })),
+  on(actions.countBySet, (state, action) => ({ ...state, by: action.by }))
 );
