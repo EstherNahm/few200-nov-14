@@ -1,6 +1,7 @@
 <div class="">
   <input type="button"
          (click)="decrement()"
+         [disabled]="(count$ | async) === 0"
          class="btn btn-primary"
          value="-">
   <span>{{ count$ | async }}</span>
@@ -10,6 +11,7 @@
          value="+">
   <input type="button"
          (click)="reset()"
+         [disabled]="(count$ | async) === 0"
          class="btn btn-primary"
          value="reset">
 </div>

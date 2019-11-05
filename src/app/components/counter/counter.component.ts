@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationState } from 'src/app/reducers';
+import { ApplicationState, selectCurrentCount } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import * as actions from '../../actions/counter.actions';
 
 @Component({
   selector: 'app-counter',
@@ -14,17 +15,17 @@ export class CounterComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
-    this.count$ = this.store.select(getCurrent);
+    this.count$ = this.store.select(selectCurrentCount);
   }
 
   increment() {
-    this.store.dispatch({ type: 'increment' });
+    this.store.dispatch(actions.increment());
   }
   decrement() {
-    this.store.dispatch({ type: 'decrement' });
+    this.store.dispatch(actions.decrement());
   }
   reset() {
-    this.store.dispatch({ type: 'reset' });
+    this.store.dispatch(actions.reset());
   }
 }
 function getCurrent(state: ApplicationState) {
