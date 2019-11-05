@@ -23,6 +23,12 @@ export function reducer(state: CounterState = initialState, action: Action): Cou
         current: state.current - 1
       };
     }
+    case 'reset': {
+      return {
+        current: 0
+      };
+    }
+
     default:
       return state;
   }

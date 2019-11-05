@@ -23,6 +23,9 @@ export class CounterComponent implements OnInit {
   decrement() {
     this.store.dispatch({ type: 'decrement' });
   }
+  reset() {
+    this.store.dispatch({ type: 'reset' });
+  }
 }
 function getCurrent(state: ApplicationState) {
   return state.counter.current;
