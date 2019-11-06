@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TipCalculatorComponent } from './components/tip-calculator/tip-calculator.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { MoviesComponent } from './features/movies/movies.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'tip',
     component: TipCalculatorComponent
+  },
+  {
+    path: 'movies',
+    component: MoviesComponent
   },
   {
     path: 'todos',
