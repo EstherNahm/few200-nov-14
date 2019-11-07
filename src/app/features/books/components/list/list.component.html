@@ -2,6 +2,7 @@
      *ngFor="let book of model">
   <div class="card-body">
     <h5 class="card-title">{{ book.title }}</h5>
-    <p class="card-text">{{ book.title }} is by {{ book.author }}!</p>
+    <p class="card-title">By: {{ book.author }}</p>
+    <p class="card-title">Type: {{ book.type }}<p>
   </div>
 </div>

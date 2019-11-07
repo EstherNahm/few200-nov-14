@@ -6,6 +6,7 @@ import { TodosComponent } from './components/todos/todos.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MoviesComponent } from './features/movies/movies.component';
 import { BooksComponent } from './features/books/books.component';
+import { MathgameComponent } from './features/mathgame/mathgame.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'movies',
     component: MoviesComponent
+  },
+  {
+    path: 'mathgame',
+    component: MathgameComponent
   },
   {
     path: 'books',

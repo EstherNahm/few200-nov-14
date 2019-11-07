@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addBook } from '../../actions/list.actions';
 import { Store } from '@ngrx/store';
+import { BooksState } from '../../reducers';
 
 @Component({
   selector: 'app-entry',
@@ -9,7 +10,7 @@ import { Store } from '@ngrx/store';
 })
 export class EntryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<BooksState>) { }
 
   ngOnInit() {
   }
@@ -17,14 +18,14 @@ export class EntryComponent implements OnInit {
   add(titleEl: HTMLInputElement, authorEl: HTMLInputElement, typeEl: HTMLSelectElement) {
     const itemToAdd = {
       title: titleEl.value,
-      author: authorEl.valueAsNumber,
+      author: authorEl.value,
       type: typeEl.value
     };
 
     this.store.dispatch(addBook({ ...itemToAdd }));
     titleEl.value = '';
     authorEl.value = '';
-    typeEl.value = '2';
+    typeEl.value = '';
     titleEl.focus();
   }
 }

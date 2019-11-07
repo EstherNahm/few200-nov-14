@@ -21,7 +21,7 @@ const initialState: State = {
   ids: ['1', '2'],
   entities: {
     1: { id: '1', title: 'Eat Pray Love', author: 'Liz Gilbert', type: 'Hardcover' },
-    2: { id: '2', title: 'mozart season', author: 'virigina wolff', type: 'paperback' }
+    2: { id: '2', title: 'The Mozart Season', author: 'Virgina Wolff', type: 'paperback' }
   }
 };
 

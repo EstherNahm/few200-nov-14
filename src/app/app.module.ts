@@ -19,6 +19,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { MoviesModule } from './features/movies/movies.module';
 import { BooksModule } from './features/books/books.module';
+import { MathgameComponent } from './features/mathgame/mathgame.component';
+import { MathgameModule } from './features/mathgame/mathgame.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { BooksModule } from './features/books/books.module';
   imports: [
     BooksModule,
     MoviesModule,
+    MathgameModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
